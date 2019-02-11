@@ -1,11 +1,25 @@
 git init
 
 brew install pipenv
+brew install postgres
 
 pipenv shell # starts a new shell environment
 
 pipenv install django
+pipenv install psycopg2
+pipenv install psycopg2-binary
 
 django-admin startproject project
+
+# Set db
+psql postgres
+create user staging_user with password 'password';
+create database project with owner staging_user;
+
+python manage.py makemigrations
+python manage.py migrate
+
+# craete django users
+python manage.py createsuperuser
 
 python manage.py runserver
