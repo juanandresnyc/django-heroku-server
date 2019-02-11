@@ -1,0 +1,11 @@
+git init
+
+brew install pipenv
+
+pipenv shell # starts a new shell environment
+
+pipenv install django
+
+django-admin startproject project
+
+python manage.py runserver
