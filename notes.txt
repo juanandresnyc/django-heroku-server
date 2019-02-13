@@ -8,6 +8,8 @@ pipenv shell # starts a new shell environment
 pipenv install django
 pipenv install psycopg2
 pipenv install psycopg2-binary
+pipenv install gunicorn
+pipenv install dj-database-url
 
 django-admin startproject project
 
@@ -23,3 +25,16 @@ python manage.py migrate
 python manage.py createsuperuser
 
 python manage.py runserver
+
+heroku login
+heroku create
+heroku config:set SECRET_KEY='thisismysecretkey'
+
+# git
+Create a repo in github, then add it as a remote
+git remote add origin https://github.com/juanandresnyc/django-heroku-server.git
+
+In heroku, link deployment method to github repo
+
+# heroku db
+In heroku, provision Heroku Postgres addon (free hobby dev one)

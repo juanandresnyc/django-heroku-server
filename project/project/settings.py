@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+import dj-database-url
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,12 +23,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'qt*fa-70efxd4pe82)j^=8wg+fh6x1tii9i2275)ns-4pru0%7'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'qt*fa-70efxd4pe82)j^=8wg+fh6x1tii9i2275)ns-4pru0%7')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', True)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [‘0.0.0.0’, ‘localhost’, damp-tor-22048.herokuapp.com’]
 
 
 # Application definition
@@ -83,6 +86,9 @@ DATABASES = {
         'PORT': '5432',
     },
 }
+# For Heroku
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
