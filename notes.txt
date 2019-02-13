@@ -10,6 +10,7 @@ pipenv install psycopg2
 pipenv install psycopg2-binary
 pipenv install gunicorn
 pipenv install dj-database-url
+pipenv install whitenoise
 
 django-admin startproject project
 
@@ -38,3 +39,9 @@ In heroku, link deployment method to github repo
 
 # heroku db
 In heroku, provision Heroku Postgres addon (free hobby dev one)
+
+After server is running in heroku, from terminal
+
+heroku run python manage.py makemigrations
+heroku run python manage.py migrate
+heroku run python manage.py createsuperuser
