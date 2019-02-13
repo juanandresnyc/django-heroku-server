@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'qt*fa-70efxd4pe82)j^=8wg+fh6x1tii9i22
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', True)
 
-ALLOWED_HOSTS = [‘0.0.0.0’, ‘localhost’, damp-tor-22048.herokuapp.com’]
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', 'damp-tor-22048.herokuapp.com']
 
 
 # Application definition
